@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunchg.webservice.dao.CommodityDao">
+
+    <sql id="selectFields">
+        id,name,url,pic,origin,keyword,price
+    </sql>
+    <select id="selectAll" resultType="Commodity">
+        select <include refid="selectFields"></include>
+        from commodity
+    </select>
+    <select id="selectByKeyword" resultType="Commodity">
+        select <include refid="selectFields"></include>
+        from commodity
+        where keyword = #{keyword}
+    </select>
+    <select id="selectById" resultType="Commodity">
+        select <include refid="selectFields"></include>
+        from commodity
+        where id = #{id}
+    </select>
+</mapper>
