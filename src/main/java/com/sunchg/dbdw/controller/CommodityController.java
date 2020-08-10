@@ -1,7 +1,7 @@
-package com.sunchg.webservice.controller;
+package com.sunchg.dbdw.controller;
 
-import com.sunchg.webservice.entity.Commodity;
-import com.sunchg.webservice.service.CommodityService;
+import com.sunchg.dbdw.entity.Commodity;
+import com.sunchg.dbdw.service.CommodityService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;

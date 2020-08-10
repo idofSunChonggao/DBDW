@@ -1,8 +1,8 @@
-package com.sunchg.webservice.MapperTests;
+package com.sunchg.dbdw.MapperTests;
 
-import com.sunchg.webservice.WebserviceApplication;
-import com.sunchg.webservice.dao.CommodityDao;
-import com.sunchg.webservice.entity.Commodity;
+import com.sunchg.dbdw.WebserviceApplication;
+import com.sunchg.dbdw.dao.CommodityDao;
+import com.sunchg.dbdw.entity.Commodity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

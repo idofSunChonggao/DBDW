@@ -1,6 +1,4 @@
-package com.sunchg.webservice.entity;
-
-import java.util.stream.StreamSupport;
+package com.sunchg.dbdw.entity;
 
 /**
  * @Author SunChonggao

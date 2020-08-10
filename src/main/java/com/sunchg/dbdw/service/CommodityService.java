@@ -1,4 +1,4 @@
-package com.sunchg.webservice.service;
+package com.sunchg.dbdw.service;
 
 /**
  * @Author SunChonggao
@@ -7,8 +7,8 @@ package com.sunchg.webservice.service;
  * @Description:业务层
  */
 
-import com.sunchg.webservice.dao.CommodityDao;
-import com.sunchg.webservice.entity.Commodity;
+import com.sunchg.dbdw.dao.CommodityDao;
+import com.sunchg.dbdw.entity.Commodity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.sunchg.webservice.dao;
+package com.sunchg.dbdw.dao;
 
-import com.sunchg.webservice.entity.Commodity;
+import com.sunchg.dbdw.entity.Commodity;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
