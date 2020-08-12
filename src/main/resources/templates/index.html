@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,25 +15,34 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link th:href="@{/css/ie10-viewport-bug-workaround.css}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../static/css/starter-template.css" rel="stylesheet">
+    <link th:href="@{static/css/starter-template.css}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .table-responsive
+        {
+            padding: 50px 10%;
+        }
+        caption
+        {
+            font-family: "黑体","Times New Roman";
+            font-size: 30px;
+            color:black;
+        }
+    </style>
 </head>
 
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top" th:fragment="head">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -47,23 +55,36 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">主页</a></li>
-                <li><a href="#about">篡改测试</a></li>
-                <li><a href="#contact">篡改检测及恢复</a></li>
+                <li class="active"><a th:href="@{/demo/index}">主页</a></li>
+                <li><a th:href="@{/demo/alterTest}">篡改测试</a></li>
+                <li><a th:href="@{/demo/detect}">篡改检测</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-
 <div class="container">
-
-    <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+    <div class="table-responsive">
+        <table class="table">
+            <caption>车主信息</caption>
+            <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>驾龄</th>
+                <th>车辆信息</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="owner : ${owners}">
+                <td th:text="${owner.name}">张三</td>
+                <td th:text="${owner.age}+岁">0</td>
+                <td th:text="${owner.driving}+年">1</td>
+                <td th:text="${owner.car}">马自达</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
 </div><!-- /.container -->
-
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -72,6 +93,6 @@
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+<script th:src="@{/js/ie10-viewport-bug-workaround.js}"></script>
 </body>
 </html>

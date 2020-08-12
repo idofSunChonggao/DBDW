@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunchg.dbdw.dao.OwnerDao">
+
+    <sql id="selectFields">
+        id,name,age,driving,car
+    </sql>
+    <select id="selectAll" resultType="Owner">
+        select <include refid="selectFields"></include>
+        from owner
+    </select>
+    <select id="selectById" resultType="Owner">
+        select <include refid="selectFields"></include>
+        from owner
+        where id = #{id}
+    </select>
+    <select id="selectDigestById" resultType="String">
+        select digest
+        from owner
+        where id = #{id}
+    </select>
+    <select id="selectWatermarkById" resultType="String">
+        select watermark
+        from owner
+        where id = #{id}
+    </select>
+    <update id="updateCar">
+        update owner set car = #{car} where id = #{id}
+    </update>
+    <update id="updateDigest">
+        update owner set digest = #{digest} where id = #{id}
+    </update>
+    <update id="updateWatermark">
+        update owner set watermark = #{watermark} where id = #{id}
+    </update>
+
+</mapper>
