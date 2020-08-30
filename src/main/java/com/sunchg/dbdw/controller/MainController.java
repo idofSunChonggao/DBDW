@@ -68,6 +68,11 @@ public class MainController {
         return "/detect";
 
     }
+    @RequestMapping(path = "/recover", method = RequestMethod.GET)
+    public String recover(@RequestParam(value = "id")int id) {
+        ownerService.recover(id);
+        return "redirect:/demo/detect";
+    }
     @RequestMapping(path = "/generate", method = RequestMethod.GET)
     @ResponseBody
     public String generate() {
