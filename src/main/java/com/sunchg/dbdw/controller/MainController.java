@@ -20,7 +20,7 @@ import java.util.List;
  * @Description:控制器
  */
 @Controller
-@RequestMapping("/demo")
+//@RequestMapping("/demo")
 public class MainController {
 
     private OwnerService ownerService;
@@ -48,7 +48,7 @@ public class MainController {
                                       @RequestParam(value = "car") String car) {
 
         ownerService.alterCar(id, car);
-        return "redirect:/demo/index";
+        return "redirect:/index";
     }
     @RequestMapping(path = "/detect", method = RequestMethod.GET)
     public String getDetectPage(Model model) {
@@ -68,9 +68,18 @@ public class MainController {
         return "/detect";
 
     }
-    @RequestMapping(path = "/recover", method = RequestMethod.GET)
-    public String recover(@RequestParam(value = "id")int id) {
-        ownerService.recover(id);
-        return "redirect:/demo/detect";
+    @RequestMapping(path = "/generate", method = RequestMethod.GET)
+    @ResponseBody
+    public String generate() {
+        List<Owner> list = ownerService.queryAll();
+        if(list == null || list.size() == 0)
+            return "数据库为空";
+        for(Owner owner:list){
+            ownerService.generateDigest(owner);
+            ownerService.generateWatermark(owner);
+
+        }
+        return "数字水印和摘要生成完毕";
     }
+
 }
