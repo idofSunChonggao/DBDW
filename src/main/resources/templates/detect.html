@@ -7,7 +7,7 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" th:href="@{/images/favicon.ico}">
 
     <title>DBDW</title>
     <style>
@@ -35,15 +35,13 @@
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link th:href="@{/css/ie10-viewport-bug-workaround.css}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../static/css/starter-template.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <link th:href="@{/css/copyright.css}" type="text/css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -66,9 +64,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a th:href="@{/demo/index}">主页</a></li>
-                <li><a th:href="@{/demo/alterTest}">篡改测试</a></li>
-                <li class="active"><a th:href="@{/demo/detect}">篡改检测</a></li>
+                <li><a th:href="@{/index}">主页</a></li>
+                <li><a th:href="@{/alterTest}">篡改测试</a></li>
+                <li class="active"><a th:href="@{/detect}">篡改检测</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -94,7 +92,7 @@
                 <td th:text="${owner.car}">马自达</td>
                 <td><span th:text="${result}">备注</span>
                     <span class="recover">
-                        <a class="btn btn-success" th:href="@{/demo/recover(id=${owner.id})}" role="button">恢复</a>
+                        <a class="btn btn-success" th:href="@{/recover(id=${owner.id})}" role="button">恢复</a>
                     </span>
                 </td>
             </tr>
@@ -103,6 +101,14 @@
     </div>
 
 </div>
+<div th:replace="/index::foot"></div>
 
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script th:src="@{/js/ie10-viewport-bug-workaround.js}"></script>
 </body>
+
 </html>
