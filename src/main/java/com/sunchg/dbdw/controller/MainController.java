@@ -38,7 +38,7 @@ public class MainController {
         modelAndView.setViewName("/index");
         return modelAndView;
     }
-    @RequestMapping(path = "/alterTest", method = RequestMethod.GET)
+    @RequestMapping(path = "/alter", method = RequestMethod.GET)
     public String getAlterPage() {
         return "/alter";
     }
@@ -48,7 +48,7 @@ public class MainController {
                                       @RequestParam(value = "car") String car) {
 
         ownerService.alterCar(id, car);
-        return "redirect:/demo/index";
+        return "redirect:demo/index";
     }
     @RequestMapping(path = "/detect", method = RequestMethod.GET)
     public String getDetectPage(Model model) {
@@ -72,5 +72,9 @@ public class MainController {
     public String recover(@RequestParam(value = "id")int id) {
         ownerService.recover(id);
         return "redirect:/demo/detect";
+
+
+        
     }
+
 }

@@ -1,24 +1,26 @@
 package com.sunchg.dbdw;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 @SpringBootTest
 class WebserviceApplicationTests {
-    @Autowired
-    DataSource dataSource;
+
+    Logger logger = LoggerFactory.getLogger(getClass());
 
     @Test
-    public void contextLoads() throws SQLException {
-        System.out.println(dataSource.getClass());
-        Connection connection = dataSource.getConnection();
-        System.out.println(connection);
-        connection.close();
+    public void contextLoads() {
+        logger.trace("这是trace日志");
+        logger.debug("这是debug日志");
+        //root级别
+        logger.info("info");
+        logger.warn("warn");
+        logger.error("error");
+
     }
 
 
