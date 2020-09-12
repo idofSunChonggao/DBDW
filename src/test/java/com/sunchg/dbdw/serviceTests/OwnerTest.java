@@ -4,6 +4,8 @@ import com.sunchg.dbdw.DBDWApplication;
 
 import com.sunchg.dbdw.entity.Owner;
 import com.sunchg.dbdw.service.OwnerService;
+import com.sunchg.dbdw.utils.AES;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +47,9 @@ public class OwnerTest {
     }
     @Test
     public void testSelect() {
-
-        System.out.println(ownerService.queryAll());
+        String password = new SimpleHash("MD5", "123",null,2).toHex();
+        System.out.println(password);
+        //System.out.println(ownerService.queryAll());
     }
 
 

@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Accessors(chain = true)
 @Component
 public class Owner {
     private int id;

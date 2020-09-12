@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sunchg.dbdw.dao.UserDao">
+
+    <sql id="selectFields">
+        id,username,password,type
+    </sql>
+    <select id="selectAll" resultType="User">
+        select <include refid="selectFields"></include>
+    </select>
+    <select id="selectById" resultType="User">
+        select <include refid="selectFields"></include>
+        from user
+        where id = #{id}
+    </select>
+    <select id="selectWatermarkById" resultType="String">
+        select watermark
+        from owner
+        where id = #{id}
+    </select>
+    <select id="selectByUsername" resultType="User">
+        select <include refid="selectFields"></include>
+        from user
+        where username = #{username}
+    </select>
+    <update id="updateCar">
+        update owner set car = #{car} where id = #{id}
+    </update>
+    <update id="updateDigest">
+        update owner set digest = #{digest} where id = #{id}
+    </update>
+    <update id="updateWatermark">
+        update owner set watermark = #{watermark} where id = #{id}
+    </update>
+
+</mapper>
